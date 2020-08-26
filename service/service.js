@@ -4,6 +4,7 @@ class Service {
     this.get = this.get.bind(this);
     this.getUsers = this.getUsers.bind(this);
     this.postUser = this.postUser.bind(this);
+    this.getSales = this.getSales.bind(this);
     this.model = [];
   }
 
@@ -93,6 +94,36 @@ class Service {
   }
 }
 
+getSales(req, res) {
+  console.log(req);
+  const { params: { idVenta: idParam } } = req;
+  const idVenta = parseFloat(idParam);
+  if (idVenta) {
+    const finded = this.model.find(el => el.idVenta === idVenta);
+    if (!!finded) {
+      res
+        .status(200)
+        .json(finded)
+    } else {
+      res
+        .status(404)
+        .send('id no encontrado')
+    }
+  } else {
+    res
+      .status(200)
+      .json(this.model);
+  }
+}
+
+
+
 module.exports = {
   Service,
 };
+   
+
+ 
+  
+  
+
