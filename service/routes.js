@@ -13,13 +13,27 @@ const { Service } = require('./service');
 /**
  * CONSTANTS
  */
-const { URLS, autores } = require('./../utils/constants');
+const { URLS, autores,paquetes,ventas } = require('./../utils/constants');
+
 
 const setRoutes = (app) => {
   // Author
-  const service = new Service();
-  service.setModel(autores);
-  app.get(`${URLS.API_BASE}${URLS.AUTHORS}/:id?`, md.auth.authUser, service.get);
+  const serviceUser = new Service();
+  const servicePackages = new Service();
+  const serviceSales = new Service();
+  //service.setModel(autores);
+  //app.get(`${URLS.API_BASE}${URLS.AUTHORS}/:id?`, md.auth.authUser, service.get);
+
+  // PACKAGES
+  servicePackages.setModel(paquetes);
+  app.get(`${URLS.API_BASE}${URLS.PACKAGES}/:id?`, servicePackages.get);
+  //app.post(`${URLS.API_BASE}${URLS.PACKAGES}`,servicePackages.packagePost);
+  //app.put(`${URLS.API_BASE}${URLS.PACKAGES}/:id?`, servicePackages.get);
+  //app.delete(`${URLS.API_BASE}${URLS.PACKAGES}/:id?`, servicePackages.get);
+
+  // SALES 
+  serviceSales.setModel(ventas);
+  app.get(`${URLS.API_BASE}${URLS.VENTAS}/:id?`, serviceSales.getSales);
 };
 
 
