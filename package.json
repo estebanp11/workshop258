@@ -1,0 +1,19 @@
+{
+  "name": "myserver",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon":"nodemon",
+    "start": "npm run nodemon server.js"
+  },
+  "keywords": [
+    "ESTEBAN"
+  ],
+  "author": "ESTEBAN",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
