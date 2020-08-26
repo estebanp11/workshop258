@@ -34,4 +34,4 @@ app.use((err,req, res, next) => {
 app.use(express.static(__dirname + '/static'));
 
 /* start Service routes */
-service.setRoutes(app);
+// service.setRoutes(app);
