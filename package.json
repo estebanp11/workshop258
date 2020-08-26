@@ -14,7 +14,11 @@
   "author": "ESTEBAN",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "body-parse": "^0.1.0",
+=======
+    "body-parser": "^1.19.0",
+>>>>>>> f330c4fbb9944f8468701ffc2fe3c6643d037b88
     "express": "^4.17.1"
   }
 }
