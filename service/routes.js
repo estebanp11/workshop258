@@ -18,14 +18,10 @@ const setRoutes = (app) => {
   const servicePackages = new Service();
   const serviceSales = new Service();
 
-  serviceUsers.setModel(usuarios);
-  servicePackages.setModel(paquetes);
-  serviceSales.setModel(ventas);
-
   //USERS
 
   app.post(`${URLS.API_BASE}${URLS.USERS}`, serviceUsers.postUser);
-  app.get(`${URLS.API_BASE}${URLS.USERS}`, serviceUsers.getUsers);
+  app.get(`${URLS.API_BASE}${URLS.USERS}/:id?`, serviceUsers.getUsers);
 
   // PACKAGES
   app.get(`${URLS.API_BASE}${URLS.PACKAGES}/:id?`, servicePackages.get);
