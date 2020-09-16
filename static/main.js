@@ -25,6 +25,7 @@ function login(){
   {
     alert("Debe ingresar todos los datos");
   }
+}
 
 function openLogin(){
   windowlocation.href = 'login.html';
