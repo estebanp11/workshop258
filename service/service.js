@@ -59,20 +59,16 @@ class Service {
         email: emailUser,
         nombre: nombreUser,
         apellido: apellidoUser,
-        clave: claveUser,
-        rol: rolUser,
+        clave: claveUser
       },
     } = req;
+
     if (
-      emailUser == null ||
-      nombreUser == null ||
-      apellidoUser == null ||
-      claveUser == null ||
-      rolUser == null
+        Object.values(body).find(val => val === null || val === undefined)
     ) {
-      res.status(404).send("La información no es correcta");
+      res.status(409).send("La información no es correcta");
     } else {
-      const baseQry = `INSERT INTO usuarios(idusuario,email,nombre,apellido,clave,rol) VALUES (null,'${emailUser}','${nombreUser}','${apellidoUser}','${claveUser}',2`;
+      const baseQry = `INSERT INTO usuarios(idusuario,email,nombre,apellido,clave,rol) VALUES (null,'${emailUser}','${nombreUser}','${apellidoUser}','${claveUser}',2)`;
       try {
         const resData = await resQuery(baseQry);
         console.log(resData);
